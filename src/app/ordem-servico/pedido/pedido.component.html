@@ -1,0 +1,67 @@
+<app-cabecalho></app-cabecalho>
+
+<!--form [formGroup]="formOS" -->
+<div class="form-group row">
+    <div class="col-md-2">
+        <label>Posto de Coleta:</label>
+        <input type="text" disabled [(ngModel)]="postoColeta.descricao">
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <label>Convênio:</label>
+      <input type="text" name="convenioid" id="convenioid" disabled class="form-control" 
+            [(ngModel)]="paciente.convenio" disabled/>
+    </div>
+    <div class="col-md-3">
+      <label>Data Realização:</label>
+      <input type="date" name="dataOs" id="dataOs" class="form-control" 
+                [(ngModel)]="ordemServico.dataOs" disabled/>
+    </div>
+  </div>
+  <hr>
+    <div class="form-group row">
+      <div class="col-md-2">
+        <label>Protocolo num:</label>
+        <input type="text" name="id" id="id" disabled class="form-control" 
+              [(ngModel)]="ordemServico.id" />
+      </div>
+      <div class="col-md-3">
+        <label>Prev. Retirada:</label>
+        <input type="date" name="dataRetirada" id="dataRetirada" class="form-control"
+               [(ngModel)]="ordemServico.dataRetirada" />
+       </div>
+      <div class="col-md-3">
+  
+      </div>
+      <div class="col-md-3">
+     </div>
+      
+    </div>
+  
+  
+    <div class="form-group row">
+      <div class="col-md-4">
+        <label>Médico:</label>
+        <select class="custom-select" id="medico" [(ngModel)]="medico" >
+          <option *ngFor="let item of medicos" [ngValue]="item">{{item.nome}}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label>Paciente:</label>
+        <select class="custom-select" id="paciente" [(ngModel)]="paciente" >
+          <option *ngFor="let item of pacientes" [ngValue]="item">{{item.nome}}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary btn_cabecalho" 
+                (click)="gravarOrdem()">Gerar OS</button>&nbsp;
+        <button type="submit" class="btn btn-success btn_cabecalho" 
+                (click)="finalizarOrdem()">Finalizar</button>
+      </div>
+    </div>
+  <!--/form-->
+  <app-exames [item_ordemServico]="ordemServico" 
+          *ngIf="ordemServico.id"></app-exames>
+  
+
+<app-rodape></app-rodape>

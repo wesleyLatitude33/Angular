@@ -1,0 +1,9 @@
+.btn_cabecalho{
+    margin-top: 33px;
+}
+
+#totalOS{
+    background-color: lightgray;
+    border-radius: 20px;
+    text-align: center;
+}

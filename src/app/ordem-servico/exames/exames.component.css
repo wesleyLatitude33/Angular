@@ -1,0 +1,10 @@
+#os-item{
+    background-color: rgb(220, 228, 226);
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+#gravarItem{
+    margin-top: 30px;
+}

@@ -1,0 +1,64 @@
+
+<div id="os-item">
+    <h6><b>Itens da O.S.</b></h6>
+          <div class="form-group row">
+            <div class="col-md-2">
+              <label>Exame:</label>
+              <select class="custom-select" id="exame" [(ngModel)]="exame" 
+                                                        (ngModelChange)="resultadoExame()">
+                <option selected>Selecione...</option>
+                <option *ngFor="let item of exames" [ngValue]="item">{{item.descricao}}</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label>Valor:</label>
+              <input type="text" name="valor" id="valor" class="form-control" [(ngModel)]="ordemServicoexame.preco" disabled/>
+            </div>
+            <div class="col-md-3">
+                <label>Resultado:</label>
+                <input type="date" name="dataResultado" id="dataResultado" class="form-control" 
+                    [(ngModel)]="ordemServicoexame.dataResultado"/>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="gravarItem" 
+                    (click)="gravarExame()">Inserir</button>
+            </div>
+            <div class="col-md-2" id="totalOS">
+              <h5>Total O.S.</h5>
+              <input type="text" [(ngModel)]="totalOSFormat" id="totalOS" class="form-control" disabled>
+            </div>
+          </div>
+  </div>
+  
+  <div style="text-align:center">
+    <h3>Lista de exames</h3>
+    <hr/>
+  
+    <table class="table table-hover">
+      <thead>
+        <th>NOME</th>
+         <th>VALOR</th>
+         <th>DATA</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ordemServicoexames"> 
+          <td>
+            {{item.exameNome | uppercase }}
+          </td>
+          <td>
+            {{item.preco}}
+          </td>
+          <td>
+            {{item.dataResultado}}
+          </td>
+          <td>
+            <button type="button" (click)="excluirExame(item)" class="btn btn-danger">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
